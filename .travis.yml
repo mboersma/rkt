@@ -1,0 +1,17 @@
+# Configures Rocket tests at Travis CI (https://travis-ci.org).
+
+language: go
+
+go:
+    - 1.3
+    - tip
+
+matrix:
+    fast_finish: true
+
+install:
+    -  go get -d -v ./app-container/... && go build -v ./app-container/...
+
+script:
+    - go test -v ./app-container/...
+
